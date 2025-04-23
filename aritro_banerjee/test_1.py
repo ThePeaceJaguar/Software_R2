@@ -85,7 +85,11 @@ def main():
                 if battery < 30:
                     speed = 2
 
-                
+                if battery < 3:
+                    altitude = -total_altitude if total_altitude > 0 else 0
+                    speed = 0
+                    print("Drone landed, low battery!")
+ 
             except ValueError as e:
                 print(e)
                 break
