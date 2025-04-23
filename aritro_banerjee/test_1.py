@@ -55,7 +55,6 @@ def main():
                 telemetry_data_str = json.dumps(telemetry)
                 telemetry_data = json.loads(telemetry_data_str)
                 print(telemetry_data)
-                print("updated")
 
                 tilt_angle = calculate_tilt_angle(telemetry_data['gyroscope'])
                 if tilt_angle > 1.5: #root(3), I see that's how gyro angle is being measured in the drone module
@@ -66,6 +65,15 @@ def main():
                 metrics = drone.get_metrics()
                 metrics_str = json.dumps(metrics)
                 metrics_data = json.loads(metrics_str)
+
+                if (telemetry_data['y_position'] <= 0):
+                    print('Drone landed!')
+                    print('Battery: ' + str(round(telemetry_data['battery'], 2)) + '%')
+                    print("Iterations: ", metrics['iterations'])
+                    print("Total distance: ", metrics['total_distance'])
+                    print("--"*50)
+                
+                    break
 
                 total_altitude = telemetry_data['y_position']
                 wind_speed = telemetry_data['wind_speed']
@@ -86,9 +94,9 @@ def main():
                     speed = 2
 
                 if battery < 3:
-                    altitude = -total_altitude if total_altitude > 0 else 0
+                    altitude = - total_altitude if total_altitude > 0 else 0
                     speed = 0
-                    print("Drone landed, low battery!")
+                    
  
             except ValueError as e:
                 print(e)
