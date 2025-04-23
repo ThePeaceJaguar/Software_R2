@@ -1,0 +1,16 @@
+Hello, it's me, Aritro Banerjee, Mechanical UG 2. I'm going to elaborate on my work here
+
+First, the simulator is flawed, there is no option to ever react to sensor status changing(in the format of the simulator program provided by you in the main.py file), as anytime YELLOW or RED sensor status is activated, immediately the drone will crash as that is how the course of events are programmed. Literally, you will see there is no return of telemetry data before crashing of drone after RED or YELLOW status is selected
+I have tried to work around that by basically taking too many precautions and trying to predict the status changes
+
+Second, there is not enough information to optimise distance. There is no information on how to get out of a dust storm, it seems completely random, and there is no predictable way of navigating to lower wind speeds and dust levels. So what ends up happening is most of the time the drone is at an altitude of 3 trying not to crash which doesn't do much for battery optimisation
+
+Third, gyroscope readings are basically redundant and I've never seen my drone crash due to gyroscopic readings, I don't know how that works
+
+All of these factors combined, I've found the most reliable way of travelling far is just to stay low and at a base speed of 3(optimised through trial and error), and occassionally trying to go higher if the status and wind speeds and dust levels seem low enough, but it always fails due to battery
+There is also no instructions on what to do when battery is low, so reducing the speed to 2 seems to be optimal upon testing
+
+My final average readings are coming to about 35-40 iterations with total distances being about 115-125
+There are some edge cases where drone will crash very soon, like if dust storm increases wind and dust levels by a lot and basically skips from "GREEN" to "RED", and there's no reliable way of knowing or predicting how that
+
+Also, how do you escape the dust storm? I've tried reducing altitude, reversing direction and altering speed, and nothing seems to show a pattern, it all seems kind of arbitrary
