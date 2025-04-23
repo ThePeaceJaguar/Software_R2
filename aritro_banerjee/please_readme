@@ -14,3 +14,6 @@ My final average readings are coming to about 35-40 iterations with total distan
 There are some edge cases where drone will crash very soon, like if dust storm increases wind and dust levels by a lot and basically skips from "GREEN" to "RED", and there's no reliable way of knowing or predicting how that
 
 Also, how do you escape the dust storm? I've tried reducing altitude, reversing direction and altering speed, and nothing seems to show a pattern, it all seems kind of arbitrary
+
+BTW, to run, use command 'python aritro_banerjee/test_1.py' in bash, should work, if not please contact me
+Hoping to meet you soon, thanks!
